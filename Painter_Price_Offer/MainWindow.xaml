@@ -1,0 +1,96 @@
+﻿<Window x:Class="Painter_Price_Offer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Painter_Price_Offer"
+        mc:Ignorable="d"
+        Title="Árajánlat készítő" Height="800" MinWidth="760" MaxWidth="760">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="370"/>
+            <ColumnDefinition Width="370"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="260*"/>
+            <RowDefinition Height="260*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.ColumnSpan="2">
+            <MenuItem Header="Fájl">
+                <MenuItem Header="Új árajánlat"></MenuItem>
+                <MenuItem Header="Nyomtatás"></MenuItem>
+                <MenuItem Header="Bezárás"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <GroupBox Grid.Row="1" Grid.Column="0" Header="Saját adatok">
+            <WrapPanel>
+                <StackPanel Width="80">
+                    <Label>Lap címe:</Label>
+                    <Label>Név:</Label>
+                    <Label>Lakcím:</Label>
+                    <Label>Telefonszám:</Label>
+                    <Label>e-mail cím:</Label>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox Name="txtTitle" Width="250" Height="20" Margin="0,5,0,0"/>
+                    <TextBox Name="txtName" Width="250" Height="20" Margin="0,5,0,0"/>
+                    <TextBox Name="txtLocation" Width="250" Height="20" Margin="0,5,0,0"/>
+                    <TextBox Name="txtTelNumber" Width="250" Height="20" Margin="0,5,0,0"/>
+                    <TextBox Name="txtEmail" Width="250" Height="20" Margin="0,5,0,0"/>
+                </StackPanel>
+            </WrapPanel>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="Megrendelő adatai">
+            <StackPanel>
+                <WrapPanel>
+                    <Label>Megrendelői adatok alkalmazása:</Label>
+                    <CheckBox Name="cbCustomer" Margin="10,5,0,0" IsChecked="False" Checked="cbCustomer_Checked" Unchecked="cbCustomer_Unchecked"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel Width="80">
+                        <Label>Név:</Label>
+                        <Label>Lakcím:</Label>
+                        <Label>Telefonszám:</Label>
+                        <Label>e-mail cím:</Label>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox Name="txtCustomerName" Width="250" Height="20" Margin="0,5,0,0" IsEnabled="False"/>
+                        <TextBox Name="txtCustomerLocation" Width="250" Height="20" Margin="0,5,0,0" IsEnabled="False"/>
+                        <TextBox Name="txtCustomerPhoneNumber" Width="250" Height="20" Margin="0,5,0,0" IsEnabled="False"/>
+                        <TextBox Name="txtCustomerEmail" Width="250" Height="20" Margin="0,5,0,0" IsEnabled="False"/>
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Row="2" Grid.ColumnSpan="2" Header="Munkadíj felsorolása">
+            <ScrollViewer>
+                <DataGrid Name="grdWorkflow" RowHeight="25" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Megnevezés" Width="3*" Binding="{Binding Megnevezés}"/>
+                        <DataGridTextColumn Header="Mennyiség" Width="1*" Binding="{Binding Mennyiség}"/>
+                        <DataGridTextColumn Header="Egységár" Width="1*" Binding="{Binding Egységár}"/>
+                        <DataGridComboBoxColumn Header="Fm / m2" Width="1*" x:Name="Unital" CanUserSort="False"
+                                                    SelectedValueBinding="{Binding cbUnit, Mode=TwoWay}" DisplayMemberPath="{Binding cbUnit}"/>
+                        <DataGridTextColumn Header="Munkadíj" Width="1*" Binding="{Binding Munkadíj}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </GroupBox>
+        <GroupBox Grid.Row="3" Grid.ColumnSpan="2" Header="Anyagszükséglet">
+            <ScrollViewer>
+                <DataGrid Name="grdConsumption" RowHeight="25" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Megnevezés" Width="3*" Binding="{Binding Megnevezés}"/>
+                        <DataGridTextColumn Header="Mennyiség" Width="1*" Binding="{Binding Mennyiség}"/>
+                        <DataGridTextColumn Header="Egységár" Width="1*" Binding="{Binding Egységár}"/>
+                        <DataGridComboBoxColumn Header="Fm / m2" Width="1*" x:Name="Unital2" CanUserSort="False"
+                                                    SelectedValueBinding="{Binding cbUnit, Mode=TwoWay}" DisplayMemberPath="{Binding cbUnit}"/>
+                        <DataGridTextColumn Header="Anyagdíj" Width="1*" Binding="{Binding Anyagdíj}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </GroupBox>
+    </Grid>
+</Window>

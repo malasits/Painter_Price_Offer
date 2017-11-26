@@ -1,0 +1,14 @@
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\bin\Debug\Painter_Price_Offer.exe.config
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\bin\Debug\Painter_Price_Offer.exe
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\bin\Debug\Painter_Price_Offer.pdb
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\MainWindow.g.cs
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\App.g.cs
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer_MarkupCompile.cache
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer_MarkupCompile.lref
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\MainWindow.baml
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.g.resources
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.Properties.Resources.resources
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.csproj.GenerateResource.Cache
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.exe
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.pdb
+F:\Programing\C#\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.csprojResolveAssemblyReference.cache
