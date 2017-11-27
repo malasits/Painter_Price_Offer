@@ -81,11 +81,33 @@ namespace Painter_Price_Offer
 
         private void grdWorkflow_LostFocus(object sender, RoutedEventArgs e)
         {
+            Style cellStyle = new Style(typeof(DataGridCell));
             foreach (DataRow dr in tableWorkflow.Rows)
             {
-                if (dr[1].ToString() != "" && dr[2].ToString() != "")
+                try
                 {
-                    tableWorkflow.Rows[tableWorkflow.Rows.IndexOf(dr)].SetField<string>(tableWorkflow.Columns[4], (Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString());
+                    int a;
+                    int b;
+                    if (!string.IsNullOrEmpty(dr[1].ToString()) && !string.IsNullOrEmpty(dr[2].ToString()) && int.TryParse(dr[1].ToString(), out a) && int.TryParse(dr[2].ToString(), out b))
+                    {
+                        tableWorkflow.Rows[tableWorkflow.Rows.IndexOf(dr)].SetField<string>(tableWorkflow.Columns[4], (Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString());
+                    }
+                    if (!int.TryParse(dr[1].ToString(), out a))
+                    {
+                        cellStyle = new Style(typeof(DataGridCell));
+                        cellStyle.Setters.Add(new Setter(DataGridCell.BackgroundProperty, Brushes.Red));
+                        Mennyiseg_Column.CellStyle = cellStyle;
+                    }
+                    else
+                    {
+                        cellStyle = new Style(typeof(DataGridCell));
+                        cellStyle.Setters.Add(new Setter(DataGridCell.BackgroundProperty, Brushes.White));
+                        Mennyiseg_Column.CellStyle = cellStyle;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -99,6 +121,16 @@ namespace Painter_Price_Offer
                     tableConsumption.Rows[tableConsumption.Rows.IndexOf(dr)].SetField<string>(tableConsumption.Columns[4], (Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString());
                 }
             }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void grdWorkflow_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            //Klikkelés
         }
     }
 }

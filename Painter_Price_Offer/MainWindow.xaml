@@ -21,7 +21,7 @@
             <MenuItem Header="Fájl">
                 <MenuItem Header="Új árajánlat"></MenuItem>
                 <MenuItem Header="Nyomtatás"></MenuItem>
-                <MenuItem Header="Bezárás"></MenuItem>
+                <MenuItem Header="Bezárás" Click="MenuItem_Click" ></MenuItem>
             </MenuItem>
         </Menu>
         <GroupBox Grid.Row="1" Grid.Column="0" Header="Saját adatok">
@@ -66,12 +66,12 @@
         </GroupBox>
         <GroupBox Grid.Row="2" Grid.ColumnSpan="2" Header="Munkadíj felsorolása">
             <ScrollViewer>
-                <DataGrid Name="grdWorkflow" RowHeight="25" AutoGenerateColumns="False" LostFocus="grdWorkflow_LostFocus" >
+                <DataGrid Name="grdWorkflow" RowHeight="25" AutoGenerateColumns="False" LostFocus="grdWorkflow_LostFocus" BeginningEdit="grdWorkflow_BeginningEdit"  >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Megnevezés" Width="3*" Binding="{Binding Megnevezés}"/>
-                        <DataGridTextColumn Header="Mennyiség" Width="1*" Binding="{Binding Mennyiség}"/>
+                        <DataGridTextColumn Header="Megnevezés" Width="3*" Binding="{Binding Megnevezés}" />
+                        <DataGridTextColumn Header="Mennyiség" Width="1*" Binding="{Binding Mennyiség}" x:Name="Mennyiseg_Column"/>
                         <DataGridTextColumn Header="Egységár" Width="1*" Binding="{Binding Egységár}"/>
-                        <DataGridComboBoxColumn Header="Fm / m2" Width="1*" x:Name="Unital" CanUserSort="False"
+                        <DataGridComboBoxColumn Header="Fm / m2" Width="1*" x:Name="Unital" CanUserSort="False" 
                                                     SelectedValueBinding="{Binding cbUnit, Mode=TwoWay}" DisplayMemberPath="{Binding cbUnit}"/>
                         <DataGridTextColumn Header="Munkadíj" Width="1*" Binding="{Binding Munkadíj}" IsReadOnly="True"/>
                     </DataGrid.Columns>
@@ -83,7 +83,13 @@
                 <DataGrid Name="grdConsumption" RowHeight="25" AutoGenerateColumns="False" LostFocus="grdConsumption_LostFocus" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Megnevezés" Width="3*" Binding="{Binding Megnevezés}"/>
-                        <DataGridTextColumn Header="Mennyiség" Width="1*" Binding="{Binding Mennyiség}"/>
+                        <DataGridTextColumn Header="Mennyiség" Width="1*" Binding="{Binding Mennyiség}">
+                            <DataGridTextColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="ToolTip" Value="Csak egész szám a megengedett!" ></Setter>
+                                </Style>
+                            </DataGridTextColumn.CellStyle>
+                        </DataGridTextColumn>
                         <DataGridTextColumn Header="Egységár" Width="1*" Binding="{Binding Egységár}"/>
                         <DataGridComboBoxColumn Header="Fm / m2" Width="1*" x:Name="Unital2" CanUserSort="False"
                                                     SelectedValueBinding="{Binding cbUnit, Mode=TwoWay}" DisplayMemberPath="{Binding cbUnit}"/>
