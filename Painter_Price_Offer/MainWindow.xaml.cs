@@ -147,7 +147,24 @@ namespace Painter_Price_Offer
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         { //Új dokumentum menü
+            DialogResult result = System.Windows.Forms.MessageBox.Show("Minden adat törölve lesz", "Új dokumentum", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, System.Windows.Forms.MessageBoxOptions.DefaultDesktopOnly);
 
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                //ALAPÉRTELMEZETT ADATOK
+                txtTitle.Text = "MUNKALAP - ÁRAJÁNLAT";
+                txtName.Text = "Malasits Gyula";
+                txtLocation.Text = "2881 Ászár Báthory István utca 6";
+                txtTelNumber.Text = "0620/33 91 562";
+                txtEmail.Text = "adrige@vipmail.hu";
+                txtCustomerEmail.Text = "";
+                txtCustomerLocation.Text = "";
+                txtCustomerName.Text = "";
+                txtCustomerPhoneNumber.Text = "";
+                tableWorkflow.Clear();
+                tableConsumption.Clear();
+                cbCustomer.IsChecked = false;
+            }
         }
     }
 }
