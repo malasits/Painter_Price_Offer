@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Painter_Price_Offer"
         mc:Ignorable="d"
-        Title="Árajánlat készítő" Height="800" MinWidth="760" MaxWidth="760" WindowStartupLocation="CenterScreen">
+        Title="Árajánlat készítő" Height="850" MinWidth="760" MaxWidth="760" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="370"/>
@@ -14,14 +14,18 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="160"/>
-            <RowDefinition Height="260*"/>
-            <RowDefinition Height="260*"/>
+            <RowDefinition Height="290*"/>
+            <RowDefinition Height="255*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Menu Grid.ColumnSpan="2">
             <MenuItem Header="Fájl">
                 <MenuItem Header="Új árajánlat" Click="MenuItem_Click_1"></MenuItem>
                 <MenuItem Header="Nyomtatás"></MenuItem>
                 <MenuItem Header="Bezárás" Click="MenuItem_Click" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Beállítás">
+                <MenuItem Header="Mentés helye" Click="MenuItem_Click_2"></MenuItem>
             </MenuItem>
         </Menu>
         <GroupBox Grid.Row="1" Grid.Column="0" Header="Saját adatok">
@@ -78,7 +82,7 @@
                 </DataGrid>
             </ScrollViewer>
         </GroupBox>
-        <GroupBox Grid.Row="3" Grid.ColumnSpan="2" Header="Anyagszükséglet" >
+        <GroupBox Grid.Row="3" Grid.ColumnSpan="2" Header="Anyagszükséglet">
             <ScrollViewer>
                 <DataGrid Name="grdConsumption" RowHeight="25" AutoGenerateColumns="False" LostFocus="grdConsumption_LostFocus" >
                     <DataGrid.Columns>
@@ -90,5 +94,13 @@
                 </DataGrid>
             </ScrollViewer>
         </GroupBox>
+        <WrapPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0">
+            <Label FontWeight="Bold">Munkadíj összesen: </Label>
+            <Label Name="lblWork" Foreground="Green">0</Label>
+            <Label>FT</Label>
+            <Label FontWeight="Bold">Anyagdíj összesen:</Label>
+            <Label Name="lblMaterial" Foreground="Green">0</Label>
+            <Label >FT</Label>
+        </WrapPanel>
     </Grid>
 </Window>

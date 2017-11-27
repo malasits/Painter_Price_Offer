@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using Microsoft.Win32;
 
 namespace Painter_Price_Offer
 {
@@ -32,7 +34,7 @@ namespace Painter_Price_Offer
         public MainWindow()
         {
             InitializeComponent();
-            
+
             //Munkafolyamat adattábla generálása
             tableWorkflow.Columns.Add("Megnevezés", typeof(string));
             tableWorkflow.Columns.Add("Mennyiség", typeof(string));
@@ -63,10 +65,10 @@ namespace Painter_Price_Offer
 
         private void cbCustomer_Checked(object sender, RoutedEventArgs e)
         {
-                txtCustomerName.IsEnabled = true;
-                txtCustomerPhoneNumber.IsEnabled = true;
-                txtCustomerLocation.IsEnabled = true;
-                txtCustomerEmail.IsEnabled = true;
+            txtCustomerName.IsEnabled = true;
+            txtCustomerPhoneNumber.IsEnabled = true;
+            txtCustomerLocation.IsEnabled = true;
+            txtCustomerEmail.IsEnabled = true;
         }
 
         private void cbCustomer_Unchecked(object sender, RoutedEventArgs e)
@@ -80,13 +82,14 @@ namespace Painter_Price_Offer
 
         private void grdWorkflow_LostFocus(object sender, RoutedEventArgs e)
         {//Munkadíj számolása
-            
+
             foreach (DataRow dr in tableWorkflow.Rows)
             {
                 try
                 {
                     int a;
                     int b;
+                    int sum = 0;
                     if (!string.IsNullOrEmpty(dr[1].ToString()) && !string.IsNullOrEmpty(dr[2].ToString()) && int.TryParse(dr[1].ToString(), out a) && int.TryParse(dr[2].ToString(), out b))
                     {
                         tableWorkflow.Rows[tableWorkflow.Rows.IndexOf(dr)].SetField<string>(tableWorkflow.Columns[4], (Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString());
@@ -101,6 +104,15 @@ namespace Painter_Price_Offer
                         //cellStyle.Setters.Add(new Setter(DataGridCell.BackgroundProperty, Brushes.Red));
                         //Mennyiseg_Column.CellStyle = cellStyle;
 
+                    }
+                    else
+                    {
+
+                        foreach (DataRow numbers in tableWorkflow.Rows)
+                        {
+                            sum += Convert.ToInt32(numbers[4]);
+                            lblWork.Content = sum;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -133,14 +145,14 @@ namespace Painter_Price_Offer
                 {
                     System.Windows.MessageBox.Show(ex.Message);
                 }
-                
+
             }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         { //Kilépés menü
             // MessageBox.Show("Biztos hogy kilépsz?", "Kilépés", MessageBoxButton.YesNo, MessageBoxImage.Information)
-            DialogResult result = System.Windows.Forms.MessageBox.Show("Biztos hogy kilépsz?", "Kilépés",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1,System.Windows.Forms.MessageBoxOptions.DefaultDesktopOnly);
+            DialogResult result = System.Windows.Forms.MessageBox.Show("Biztos hogy kilépsz?", "Kilépés", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, System.Windows.Forms.MessageBoxOptions.DefaultDesktopOnly);
             if (result == System.Windows.Forms.DialogResult.Yes)
                 this.Close();
         }
@@ -165,6 +177,25 @@ namespace Painter_Price_Offer
                 tableConsumption.Clear();
                 cbCustomer.IsChecked = false;
             }
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            //RegistryKey rk = Registry.CurrentUser.CreateSubKey("SpaceRiderLocalUser");
+            //rk.SetValue("LocalUserLastEarned", lblTotal.Content);
+            //int a = Convert.ToInt32(rk.GetValue("LocalUserMaxEarned"));
+            //if (Convert.ToInt32(rk.GetValue("LocalUserMaxEarned")) < Convert.ToInt32(rk.GetValue("LocalUserLastEarned")))
+            //    rk.SetValue("LocalUserMaxEarned", lblTotal.Content);
+            //rk.Close();
+            string savePath = "";
+
+            FolderBrowserDialog opener = new FolderBrowserDialog();
+            opener.ShowDialog();
+
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey(@"Software\Painter_Price_Offer");
+            savePath = opener.SelectedPath;
+            rk.SetValue("MentesHelye", savePath);
+            rk.Close();
         }
     }
 }
