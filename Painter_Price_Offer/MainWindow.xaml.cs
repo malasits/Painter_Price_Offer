@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -44,13 +45,11 @@ namespace Painter_Price_Offer
             tableConsumption.Columns.Add("Megnevezés", typeof(string));
             tableConsumption.Columns.Add("Mennyiség", typeof(string));
             tableConsumption.Columns.Add("Egységár", typeof(string));
-            tableConsumption.Columns.Add("Fm / m2", typeof(string));
             tableConsumption.Columns.Add("Anyagdíj", typeof(string));
             grdConsumption.ItemsSource = tableConsumption.DefaultView;
 
             //Munkafolyamat adattábla legördülőlista feltöltése
             Unital.ItemsSource = cbUnit;
-            Unital2.ItemsSource = cbUnit;
 
             //Alap textboxok feltöltése adatokkal
             txtTitle.Text = "MUNKALAP - ÁRAJÁNLAT";
@@ -80,8 +79,8 @@ namespace Painter_Price_Offer
 
 
         private void grdWorkflow_LostFocus(object sender, RoutedEventArgs e)
-        {
-            Style cellStyle = new Style(typeof(DataGridCell));
+        {//Munkadíj számolása
+            
             foreach (DataRow dr in tableWorkflow.Rows)
             {
                 try
@@ -92,45 +91,63 @@ namespace Painter_Price_Offer
                     {
                         tableWorkflow.Rows[tableWorkflow.Rows.IndexOf(dr)].SetField<string>(tableWorkflow.Columns[4], (Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString());
                     }
-                    if (!int.TryParse(dr[1].ToString(), out a))
+                    if (!int.TryParse(dr[1].ToString(), out a) || !int.TryParse(dr[2].ToString(), out a))
                     {
-                        cellStyle = new Style(typeof(DataGridCell));
-                        cellStyle.Setters.Add(new Setter(DataGridCell.BackgroundProperty, Brushes.Red));
-                        Mennyiseg_Column.CellStyle = cellStyle;
-                    }
-                    else
-                    {
-                        cellStyle = new Style(typeof(DataGridCell));
-                        cellStyle.Setters.Add(new Setter(DataGridCell.BackgroundProperty, Brushes.White));
-                        Mennyiseg_Column.CellStyle = cellStyle;
+                        tableWorkflow.Rows[tableWorkflow.Rows.IndexOf(dr)].SetField<string>(tableWorkflow.Columns[4], "Hibás adat!");
+
+                        //CELLASZINEZÉS
+                        //Style cellStyle = new Style(typeof(DataGridCell));
+                        //cellStyle = new Style(typeof(DataGridCell));
+                        //cellStyle.Setters.Add(new Setter(DataGridCell.BackgroundProperty, Brushes.Red));
+                        //Mennyiseg_Column.CellStyle = cellStyle;
+
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    System.Windows.MessageBox.Show(ex.Message);
                 }
             }
         }
 
         private void grdConsumption_LostFocus(object sender, RoutedEventArgs e)
-        {
+        {//Anyagdíj számolása
             foreach (DataRow dr in tableConsumption.Rows)
             {
-                if (dr[1].ToString() != "" && dr[2].ToString() != "")
+                try
                 {
-                    tableConsumption.Rows[tableConsumption.Rows.IndexOf(dr)].SetField<string>(tableConsumption.Columns[4], (Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString());
+                    int a;
+                    int b;
+
+                    if (!string.IsNullOrEmpty(dr[1].ToString()) && !string.IsNullOrEmpty(dr[2].ToString()) && int.TryParse(dr[1].ToString(), out a) && int.TryParse(dr[2].ToString(), out b))
+                    {
+                        tableConsumption.Rows[tableConsumption.Rows.IndexOf(dr)].SetField<string>(tableConsumption.Columns[3], (a * b).ToString());
+                    }
+
+                    if (!int.TryParse(dr[1].ToString(), out a) || !int.TryParse(dr[2].ToString(), out a))
+                    {
+                        tableConsumption.Rows[tableConsumption.Rows.IndexOf(dr)].SetField<string>(tableConsumption.Columns[3], "Hibás adat!");
+                    }
                 }
+                catch (Exception ex)
+                {
+                    System.Windows.MessageBox.Show(ex.Message);
+                }
+                
             }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            
+        { //Kilépés menü
+            // MessageBox.Show("Biztos hogy kilépsz?", "Kilépés", MessageBoxButton.YesNo, MessageBoxImage.Information)
+            DialogResult result = System.Windows.Forms.MessageBox.Show("Biztos hogy kilépsz?", "Kilépés",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1,System.Windows.Forms.MessageBoxOptions.DefaultDesktopOnly);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+                this.Close();
         }
 
-        private void grdWorkflow_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
-        {
-            //Klikkelés
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        { //Új dokumentum menü
+
         }
     }
 }
