@@ -77,5 +77,21 @@ namespace Painter_Price_Offer
             txtCustomerLocation.IsEnabled = false;
             txtCustomerEmail.IsEnabled = false;
         }
+        
+        private void grdWorkflow_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {//számolás 1*2 = 4
+            //foreach (DataRow dr  in tableWorkflow.Rows)
+            //{
+            //    tableWorkflow.Rows[tableWorkflow.Rows.IndexOf(dr)].SetField<string>(tableWorkflow.Columns[4],(Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString()); 
+            //}
+        }
+
+        private void grdWorkflow_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            foreach (DataRow dr in tableWorkflow.Rows)
+            {
+                tableWorkflow.Rows[tableWorkflow.Rows.IndexOf(dr)].SetField<string>(tableWorkflow.Columns[4], (Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString());
+            }
+        }
     }
 }

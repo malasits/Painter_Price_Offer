@@ -66,14 +66,14 @@
         </GroupBox>
         <GroupBox Grid.Row="2" Grid.ColumnSpan="2" Header="Munkadíj felsorolása">
             <ScrollViewer>
-                <DataGrid Name="grdWorkflow" RowHeight="25" AutoGenerateColumns="False">
+                <DataGrid Name="grdWorkflow" RowHeight="25" AutoGenerateColumns="False" CellEditEnding="grdWorkflow_CellEditEnding" RowEditEnding="grdWorkflow_RowEditEnding">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Megnevezés" Width="3*" Binding="{Binding Megnevezés}"/>
                         <DataGridTextColumn Header="Mennyiség" Width="1*" Binding="{Binding Mennyiség}"/>
                         <DataGridTextColumn Header="Egységár" Width="1*" Binding="{Binding Egységár}"/>
                         <DataGridComboBoxColumn Header="Fm / m2" Width="1*" x:Name="Unital" CanUserSort="False"
                                                     SelectedValueBinding="{Binding cbUnit, Mode=TwoWay}" DisplayMemberPath="{Binding cbUnit}"/>
-                        <DataGridTextColumn Header="Munkadíj" Width="1*" Binding="{Binding Munkadíj}"/>
+                        <DataGridTextColumn Header="Munkadíj" Width="1*" Binding="{Binding Munkadíj}" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>
@@ -87,7 +87,7 @@
                         <DataGridTextColumn Header="Egységár" Width="1*" Binding="{Binding Egységár}"/>
                         <DataGridComboBoxColumn Header="Fm / m2" Width="1*" x:Name="Unital2" CanUserSort="False"
                                                     SelectedValueBinding="{Binding cbUnit, Mode=TwoWay}" DisplayMemberPath="{Binding cbUnit}"/>
-                        <DataGridTextColumn Header="Anyagdíj" Width="1*" Binding="{Binding Anyagdíj}"/>
+                        <DataGridTextColumn Header="Anyagdíj" Width="1*" Binding="{Binding Anyagdíj}" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>
