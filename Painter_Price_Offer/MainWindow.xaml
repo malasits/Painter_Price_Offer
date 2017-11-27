@@ -66,7 +66,7 @@
         </GroupBox>
         <GroupBox Grid.Row="2" Grid.ColumnSpan="2" Header="Munkadíj felsorolása">
             <ScrollViewer>
-                <DataGrid Name="grdWorkflow" RowHeight="25" AutoGenerateColumns="False" CellEditEnding="grdWorkflow_CellEditEnding" RowEditEnding="grdWorkflow_RowEditEnding">
+                <DataGrid Name="grdWorkflow" RowHeight="25" AutoGenerateColumns="False" LostFocus="grdWorkflow_LostFocus" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Megnevezés" Width="3*" Binding="{Binding Megnevezés}"/>
                         <DataGridTextColumn Header="Mennyiség" Width="1*" Binding="{Binding Mennyiség}"/>
@@ -78,9 +78,9 @@
                 </DataGrid>
             </ScrollViewer>
         </GroupBox>
-        <GroupBox Grid.Row="3" Grid.ColumnSpan="2" Header="Anyagszükséglet">
+        <GroupBox Grid.Row="3" Grid.ColumnSpan="2" Header="Anyagszükséglet" >
             <ScrollViewer>
-                <DataGrid Name="grdConsumption" RowHeight="25" AutoGenerateColumns="False">
+                <DataGrid Name="grdConsumption" RowHeight="25" AutoGenerateColumns="False" LostFocus="grdConsumption_LostFocus" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Megnevezés" Width="3*" Binding="{Binding Megnevezés}"/>
                         <DataGridTextColumn Header="Mennyiség" Width="1*" Binding="{Binding Mennyiség}"/>

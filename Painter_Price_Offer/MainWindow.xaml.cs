@@ -77,20 +77,27 @@ namespace Painter_Price_Offer
             txtCustomerLocation.IsEnabled = false;
             txtCustomerEmail.IsEnabled = false;
         }
-        
-        private void grdWorkflow_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {//számolás 1*2 = 4
-            //foreach (DataRow dr  in tableWorkflow.Rows)
-            //{
-            //    tableWorkflow.Rows[tableWorkflow.Rows.IndexOf(dr)].SetField<string>(tableWorkflow.Columns[4],(Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString()); 
-            //}
-        }
 
-        private void grdWorkflow_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+
+        private void grdWorkflow_LostFocus(object sender, RoutedEventArgs e)
         {
             foreach (DataRow dr in tableWorkflow.Rows)
             {
-                tableWorkflow.Rows[tableWorkflow.Rows.IndexOf(dr)].SetField<string>(tableWorkflow.Columns[4], (Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString());
+                if (dr[1].ToString() != "" && dr[2].ToString() != "")
+                {
+                    tableWorkflow.Rows[tableWorkflow.Rows.IndexOf(dr)].SetField<string>(tableWorkflow.Columns[4], (Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString());
+                }
+            }
+        }
+
+        private void grdConsumption_LostFocus(object sender, RoutedEventArgs e)
+        {
+            foreach (DataRow dr in tableConsumption.Rows)
+            {
+                if (dr[1].ToString() != "" && dr[2].ToString() != "")
+                {
+                    tableConsumption.Rows[tableConsumption.Rows.IndexOf(dr)].SetField<string>(tableConsumption.Columns[4], (Convert.ToInt32(dr[1].ToString()) * Convert.ToInt32(dr[2].ToString())).ToString());
+                }
             }
         }
     }
