@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Painter_Price_Offer.Models
 {
-    class OwnerModel
+    public class OwnerModel
     {
         public string _title { get; set; }
         public string _name { get; set; }

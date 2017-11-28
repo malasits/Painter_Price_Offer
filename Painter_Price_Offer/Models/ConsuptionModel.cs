@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Painter_Price_Offer.Models
 {
-    class ConsuptionModel
+    public class ConsuptionModel
     {
         public string _Megnevezés { get; set; }
         public string _Mennyiség { get; set; }

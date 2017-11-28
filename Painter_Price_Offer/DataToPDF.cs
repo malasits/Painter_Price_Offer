@@ -14,14 +14,17 @@ namespace Painter_Price_Offer
         List<WorkflowModel> _Workfow = new List<WorkflowModel>();
         List<ConsuptionModel> _Consuption = new List<ConsuptionModel>();
 
-        //public DataToPDF(OwnerModel owner, CustommerModel customer, List<WorkflowModel> workfow, List<ConsuptionModel> consuption)
-        //{
-        //    this._Owner = owner;
-        //    this._Customer = customer;
-        //    this._Workfow = workfow;
-        //    this._Consuption = consuption;
-        //}
+        public DataToPDF(OwnerModel owner, CustommerModel customer, List<WorkflowModel> workfow, List<ConsuptionModel> consuption)
+        {
+            this._Owner = owner;
+            this._Customer = customer;
+            this._Workfow = workfow;
+            this._Consuption = consuption;
+        }
 
-
+        public void Print()
+        {
+            //Nyomtatás!!!
+        }
     }
 }

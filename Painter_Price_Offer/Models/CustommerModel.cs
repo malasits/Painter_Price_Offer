@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Painter_Price_Offer.Models
 {
-    class CustommerModel
+    public class CustommerModel
     {
         public bool _isActive { get; set; }
         public string _name { get; set; }

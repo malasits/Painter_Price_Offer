@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
+using Painter_Price_Offer.Models;
 
 namespace Painter_Price_Offer
 {
@@ -222,6 +223,60 @@ namespace Painter_Price_Offer
                 WriteSavePath(opener.SelectedPath);
             else
                 WriteSavePath(@"C:\Arajanlat");
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            DataToPDF data = null; //adatfeldolgozás
+            OwnerModel owner = new OwnerModel(); //Tulajdonos
+            CustommerModel customer = new CustommerModel(); //Megrendelő
+            List<WorkflowModel> workflow = new List<WorkflowModel>(); //Munka
+            List<ConsuptionModel> consuption = new List<ConsuptionModel>(); //Fogyasztás, anyag
+
+            //Tulajdonos adatai
+            owner._title = txtTitle.Text;
+            owner._name = txtName.Text;
+            owner._location = txtLocation.Text;
+            owner._phoneNumber = txtTelNumber.Text;
+            owner._email = txtEmail.Text;
+
+            //Megrendelő adatai
+            customer._isActive = Convert.ToBoolean(cbCustomer.IsChecked);
+            customer._name = txtCustomerName.Text;
+            customer._location = txtCustomerLocation.Text;
+            customer._phoneNumber = txtCustomerPhoneNumber.Text;
+            customer._email = txtCustomerEmail.Text;
+
+            //Munkadíj adatok
+            foreach(DataRow dr in tableWorkflow.Rows)
+            {
+                workflow.Add(new WorkflowModel()
+                {
+                    _Megnevezés = dr["Megnevezés"].ToString(),
+                    _Mennyiség = dr["Mennyiség"].ToString(),
+                    _Egységár = dr["Egységár"].ToString(),
+                    _Fm_m2 = dr["Fm / m2"].ToString(), //Hibás adatot ad vissza!
+                    _Munkadíj = dr["Munkadíj"].ToString()
+                });
+            }
+
+            //Anyagdíj adatok
+            foreach (DataRow dr in tableConsumption.Rows)
+            {
+                consuption.Add(new ConsuptionModel()
+                {
+                    _Megnevezés = dr["Megnevezés"].ToString(),
+                    _Mennyiség = dr["Mennyiség"].ToString(),
+                    _Egységár = dr["Egységár"].ToString(),
+                    _Anyagdíj = dr["Anyagdíj"].ToString()
+                });
+            }
+
+            //Adatok átadása nyomtatásra
+            data = new DataToPDF(owner, customer, workflow, consuption);
+
+            //Adatok nyomtatása
+            data.Print();
         }
     }
 }

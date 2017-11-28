@@ -21,7 +21,7 @@
         <Menu Grid.ColumnSpan="2">
             <MenuItem Header="Fájl">
                 <MenuItem Header="Új árajánlat" Click="MenuItem_Click_1"></MenuItem>
-                <MenuItem Header="Nyomtatás"></MenuItem>
+                <MenuItem Header="Nyomtatás" Click="MenuItem_Click_3" ></MenuItem>
                 <MenuItem Header="Bezárás" Click="MenuItem_Click" ></MenuItem>
             </MenuItem>
             <MenuItem Header="Beállítás">
