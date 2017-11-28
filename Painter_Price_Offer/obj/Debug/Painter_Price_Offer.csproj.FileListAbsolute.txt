@@ -40,3 +40,17 @@ C:\Users\Joker\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter
 C:\Users\Joker\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.csproj.GenerateResource.Cache
 C:\Users\Joker\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.exe
 C:\Users\Joker\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.pdb
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\bin\Debug\Painter_Price_Offer.exe.config
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.exe
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.pdb
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\bin\Debug\Painter_Price_Offer.exe
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\bin\Debug\Painter_Price_Offer.pdb
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.csprojResolveAssemblyReference.cache
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\MainWindow.g.cs
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\App.g.cs
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer_MarkupCompile.cache
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer_MarkupCompile.lref
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\MainWindow.baml
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.g.resources
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.Properties.Resources.resources
+C:\Users\MalasitsA\Desktop\Painter_Price_Offer\Painter_Price_Offer\obj\Debug\Painter_Price_Offer.csproj.GenerateResource.Cache

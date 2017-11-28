@@ -31,6 +31,24 @@ namespace Painter_Price_Offer
             "m2", "fm"
         };
 
+        /// <summary>
+        /// Deffiniálja a mentési útvonalat a registry ben
+        /// </summary>
+        /// <param name="saveRoute">string</param>
+        private void WriteSavePath(string saveRoute)
+        {
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey(@"Software\Painter_Price_Offer");
+            rk.SetValue("SavePath", saveRoute);
+            rk.Close();
+
+            //RegistryKey rk = Registry.CurrentUser.CreateSubKey("SpaceRiderLocalUser");
+            //rk.SetValue("LocalUserLastEarned", lblTotal.Content);
+            //int a = Convert.ToInt32(rk.GetValue("LocalUserMaxEarned"));
+            //if (Convert.ToInt32(rk.GetValue("LocalUserMaxEarned")) < Convert.ToInt32(rk.GetValue("LocalUserLastEarned")))
+            //    rk.SetValue("LocalUserMaxEarned", lblTotal.Content);
+            //rk.Close();
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -89,6 +107,7 @@ namespace Painter_Price_Offer
                 {
                     int a;
                     int b;
+                    int c;
                     int sum = 0;
                     if (!string.IsNullOrEmpty(dr[1].ToString()) && !string.IsNullOrEmpty(dr[2].ToString()) && int.TryParse(dr[1].ToString(), out a) && int.TryParse(dr[2].ToString(), out b))
                     {
@@ -107,9 +126,9 @@ namespace Painter_Price_Offer
                     }
                     else
                     {
-
                         foreach (DataRow numbers in tableWorkflow.Rows)
                         {
+                            if(!string.IsNullOrEmpty(numbers[4].ToString()) && int.TryParse(numbers[4].ToString(), out c))
                             sum += Convert.ToInt32(numbers[4]);
                             lblWork.Content = sum;
                         }
@@ -130,6 +149,8 @@ namespace Painter_Price_Offer
                 {
                     int a;
                     int b;
+                    int c;
+                    int sum = 0;
 
                     if (!string.IsNullOrEmpty(dr[1].ToString()) && !string.IsNullOrEmpty(dr[2].ToString()) && int.TryParse(dr[1].ToString(), out a) && int.TryParse(dr[2].ToString(), out b))
                     {
@@ -139,6 +160,15 @@ namespace Painter_Price_Offer
                     if (!int.TryParse(dr[1].ToString(), out a) || !int.TryParse(dr[2].ToString(), out a))
                     {
                         tableConsumption.Rows[tableConsumption.Rows.IndexOf(dr)].SetField<string>(tableConsumption.Columns[3], "Hibás adat!");
+                    }
+                    else
+                    {
+                        foreach (DataRow numbers in tableConsumption.Rows)
+                        {
+                            if (!string.IsNullOrEmpty(numbers[3].ToString()) && int.TryParse(numbers[3].ToString(), out c))
+                                sum += Convert.ToInt32(numbers[3]);
+                            lblMaterial.Content = sum;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -155,6 +185,8 @@ namespace Painter_Price_Offer
             DialogResult result = System.Windows.Forms.MessageBox.Show("Biztos hogy kilépsz?", "Kilépés", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, System.Windows.Forms.MessageBoxOptions.DefaultDesktopOnly);
             if (result == System.Windows.Forms.DialogResult.Yes)
                 this.Close();
+            else
+                Window.Activate();
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
@@ -177,25 +209,19 @@ namespace Painter_Price_Offer
                 tableConsumption.Clear();
                 cbCustomer.IsChecked = false;
             }
+            else
+                Window.Activate();
         }
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-            //RegistryKey rk = Registry.CurrentUser.CreateSubKey("SpaceRiderLocalUser");
-            //rk.SetValue("LocalUserLastEarned", lblTotal.Content);
-            //int a = Convert.ToInt32(rk.GetValue("LocalUserMaxEarned"));
-            //if (Convert.ToInt32(rk.GetValue("LocalUserMaxEarned")) < Convert.ToInt32(rk.GetValue("LocalUserLastEarned")))
-            //    rk.SetValue("LocalUserMaxEarned", lblTotal.Content);
-            //rk.Close();
-            string savePath = "";
-
             FolderBrowserDialog opener = new FolderBrowserDialog();
             opener.ShowDialog();
 
-            RegistryKey rk = Registry.CurrentUser.CreateSubKey(@"Software\Painter_Price_Offer");
-            savePath = opener.SelectedPath;
-            rk.SetValue("MentesHelye", savePath);
-            rk.Close();
+            if (!string.IsNullOrEmpty(opener.SelectedPath))
+                WriteSavePath(opener.SelectedPath);
+            else
+                WriteSavePath(@"C:\Arajanlat");
         }
     }
 }
