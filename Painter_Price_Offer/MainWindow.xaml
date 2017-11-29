@@ -76,7 +76,7 @@
                         <DataGridTextColumn Header="Mennyiség" Width="1*" Binding="{Binding Mennyiség}" x:Name="Mennyiseg_Column"/>
                         <DataGridTextColumn Header="Egységár" Width="1*" Binding="{Binding Egységár}"/>
                         <DataGridComboBoxColumn Header="Fm / m2" Width="1*" x:Name="Unital" CanUserSort="False" 
-                                                    SelectedValueBinding="{Binding cbUnit, Mode=TwoWay}" DisplayMemberPath="{Binding cbUnit}"/>
+                                                    SelectedValueBinding="{Binding Fmm2, Mode=TwoWay}" DisplayMemberPath="{Binding cbUnit}"/>
                         <DataGridTextColumn Header="Munkadíj" Width="1*" Binding="{Binding Munkadíj}" IsReadOnly="True"/>
                     </DataGrid.Columns>
                 </DataGrid>

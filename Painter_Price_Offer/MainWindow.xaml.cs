@@ -58,7 +58,7 @@ namespace Painter_Price_Offer
             tableWorkflow.Columns.Add("Megnevezés", typeof(string));
             tableWorkflow.Columns.Add("Mennyiség", typeof(string));
             tableWorkflow.Columns.Add("Egységár", typeof(string));
-            tableWorkflow.Columns.Add("Fm / m2", typeof(string));
+            tableWorkflow.Columns.Add("Fmm2", typeof(string));
             tableWorkflow.Columns.Add("Munkadíj", typeof(string));
             grdWorkflow.ItemsSource = tableWorkflow.DefaultView;
 
@@ -255,9 +255,10 @@ namespace Painter_Price_Offer
                     _Megnevezés = dr["Megnevezés"].ToString(),
                     _Mennyiség = dr["Mennyiség"].ToString(),
                     _Egységár = dr["Egységár"].ToString(),
-                    _Fm_m2 = dr["Fm / m2"].ToString(), //Hibás adatot ad vissza!
+                    _Fm_m2 = dr["fmm2"].ToString(), //Hibás adatot ad vissza!
                     _Munkadíj = dr["Munkadíj"].ToString()
                 });
+                System.Windows.MessageBox.Show(workflow[0]._Fm_m2.ToString());
             }
 
             //Anyagdíj adatok
