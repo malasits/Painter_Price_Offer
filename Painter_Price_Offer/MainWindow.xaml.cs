@@ -196,6 +196,8 @@ namespace Painter_Price_Offer
 
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
+                txtTitle.Focus();
+                //tableWorkflow.Rows.Add("");
                 //ALAPÉRTELMEZETT ADATOK
                 txtTitle.Text = "MUNKALAP - ÁRAJÁNLAT";
                 txtName.Text = "Malasits Gyula";
@@ -209,6 +211,7 @@ namespace Painter_Price_Offer
                 tableWorkflow.Clear();
                 tableConsumption.Clear();
                 cbCustomer.IsChecked = false;
+                Window.Activate();
             }
             else
                 Window.Activate();
@@ -255,10 +258,12 @@ namespace Painter_Price_Offer
                     _Megnevezés = dr["Megnevezés"].ToString(),
                     _Mennyiség = dr["Mennyiség"].ToString(),
                     _Egységár = dr["Egységár"].ToString(),
-                    _Fm_m2 = dr["fmm2"].ToString(), //Hibás adatot ad vissza!
+                    _Fm_m2 = dr["fmm2"].ToString(),
                     _Munkadíj = dr["Munkadíj"].ToString()
-                });
-                System.Windows.MessageBox.Show(workflow[0]._Fm_m2.ToString());
+
+            });
+                System.Windows.MessageBox.Show(dr["fmm2"].ToString());
+                
             }
 
             //Anyagdíj adatok
@@ -279,5 +284,6 @@ namespace Painter_Price_Offer
             //Adatok nyomtatása
             data.Print();
         }
+
     }
 }
