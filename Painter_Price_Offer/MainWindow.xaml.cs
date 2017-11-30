@@ -197,7 +197,6 @@ namespace Painter_Price_Offer
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 txtTitle.Focus();
-                //tableWorkflow.Rows.Add("");
                 //ALAPÉRTELMEZETT ADATOK
                 txtTitle.Text = "MUNKALAP - ÁRAJÁNLAT";
                 txtName.Text = "Malasits Gyula";
@@ -230,6 +229,8 @@ namespace Painter_Price_Offer
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
+
+            txtTitle.Focus();
             DataToPDF data = null; //adatfeldolgozás
             OwnerModel owner = new OwnerModel(); //Tulajdonos
             CustommerModel customer = new CustommerModel(); //Megrendelő
