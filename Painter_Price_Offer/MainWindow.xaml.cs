@@ -85,8 +85,8 @@ namespace Painter_Price_Offer
             //Alap textboxok feltöltése adatokkal
             txtTitle.Text = "MUNKALAP - ÁRAJÁNLAT";
             txtName.Text = "Malasits Gyula";
-            txtLocation.Text = "2881 Ászár Báthory István utca 6";
-            txtTelNumber.Text = "0620/33 91 562";
+            txtLocation.Text = "2881 Ászár Báthory István utca 11";
+            txtTelNumber.Text = "+3620/42 45 121";
             txtEmail.Text = "adrige@vipmail.hu";
         }
 

@@ -1,0 +1,17 @@
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\bin\Release\Painter_Price_Offer.exe.config
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\bin\Release\Painter_Price_Offer.exe
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\bin\Release\Painter_Price_Offer.pdb
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\bin\Release\itextsharp.dll
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\bin\Release\itextsharp.xml
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\MainWindow.g.cs
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\Title.g.cs
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\App.g.cs
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\Painter_Price_Offer_MarkupCompile.cache
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\Painter_Price_Offer_MarkupCompile.lref
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\MainWindow.baml
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\Title.baml
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\Painter_Price_Offer.g.resources
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\Painter_Price_Offer.Properties.Resources.resources
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\Painter_Price_Offer.csproj.GenerateResource.Cache
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\Painter_Price_Offer.exe
+C:\Users\Joker\Desktop\Painter_Price_Offer-master\Painter_Price_Offer\obj\Release\Painter_Price_Offer.pdb

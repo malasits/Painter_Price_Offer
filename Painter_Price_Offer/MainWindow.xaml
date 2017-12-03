@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Painter_Price_Offer"
         mc:Ignorable="d"
-        Title="Árajánlat készítő" Height="700" MinWidth="760" MaxWidth="760" WindowStartupLocation="CenterScreen" Name="Window">
+        Title="Árajánlat készítő" Height="700" MinWidth="760" MaxWidth="760" WindowStartupLocation="CenterScreen" Name="Window" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="370"/>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Painter_Price_Offer"
         mc:Ignorable="d"
         Title="Dokumentum címe" Height="150" Width="300">
-    <Grid>
+    <Grid Loaded="Grid_Loaded" KeyDown="Grid_KeyDown">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label>Add meg a dokumentum címét:</Label>
             <TextBox Name="txtTitle" Width="200" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
