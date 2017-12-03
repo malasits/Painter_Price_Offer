@@ -50,6 +50,16 @@ namespace Painter_Price_Offer
             //rk.Close();
         }
 
+        private string ReadSavePath()
+        {
+            string ret = "";
+            RegistryKey rk = Registry.CurrentUser.CreateSubKey(@"Software\Painter_Price_Offer");
+            ret = rk.GetValue("SavePath").ToString();
+            rk.Close();
+
+            return ret;
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -236,6 +246,10 @@ namespace Painter_Price_Offer
             CustommerModel customer = new CustommerModel(); //Megrendelő
             List<WorkflowModel> workflow = new List<WorkflowModel>(); //Munka
             List<ConsuptionModel> consuption = new List<ConsuptionModel>(); //Fogyasztás, anyag
+            string savePath = ""; //Mentés helye
+            int wSum = 0; //Munkadíj össz
+            int cSum = 0; //Anyagdíj össz
+            int totalSum = 0; //Végösszeg
 
             //Tulajdonos adatai
             owner._title = txtTitle.Text;
@@ -278,8 +292,16 @@ namespace Painter_Price_Offer
                 });
             }
 
+            //Mentés helyének lekérése
+            savePath = ReadSavePath();
+
+            //Összegek
+            wSum = int.Parse(lblWork.Content.ToString());
+            cSum = int.Parse(lblMaterial.Content.ToString());
+            totalSum = wSum + cSum;
+
             //Adatok átadása nyomtatásra
-            data = new DataToPDF(owner, customer, workflow, consuption);
+            data = new DataToPDF(owner, customer, workflow, consuption, savePath, wSum, cSum, totalSum);
 
             //Adatok nyomtatása
             data.Print();

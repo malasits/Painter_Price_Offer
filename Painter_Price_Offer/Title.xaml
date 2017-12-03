@@ -1,0 +1,16 @@
+﻿<Window x:Class="Painter_Price_Offer.Title"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Painter_Price_Offer"
+        mc:Ignorable="d"
+        Title="Dokumentum címe" Height="150" Width="300">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label>Add meg a dokumentum címét:</Label>
+            <TextBox Name="txtTitle" Width="200" Height="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Name="btnOk" Content="OK" Width="100" Height="25" Margin="0,15" Click="btnOk_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
