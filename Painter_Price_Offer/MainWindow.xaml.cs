@@ -224,7 +224,7 @@ namespace Painter_Price_Offer
             if (!string.IsNullOrEmpty(opener.SelectedPath))
                 WriteSavePath(opener.SelectedPath);
             else
-                WriteSavePath(@"C:\Arajanlat");
+                WriteSavePath("$");
         }
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
@@ -263,8 +263,7 @@ namespace Painter_Price_Offer
                     _Munkadíj = dr["Munkadíj"].ToString()
 
             });
-                System.Windows.MessageBox.Show(dr["fmm2"].ToString());
-                
+                                
             }
 
             //Anyagdíj adatok
