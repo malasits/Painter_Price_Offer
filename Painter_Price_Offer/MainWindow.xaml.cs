@@ -1,20 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.IO;
 using Microsoft.Win32;
 using Painter_Price_Offer.Models;
 
@@ -53,9 +41,17 @@ namespace Painter_Price_Offer
         private string ReadSavePath()
         {
             string ret = "";
-            RegistryKey rk = Registry.CurrentUser.CreateSubKey(@"Software\Painter_Price_Offer");
-            ret = rk.GetValue("SavePath").ToString();
-            rk.Close();
+            try
+            {
+                RegistryKey rk = Registry.CurrentUser.CreateSubKey(@"Software\Painter_Price_Offer");
+                ret = rk.GetValue("SavePath").ToString();
+                rk.Close();
+            }
+            catch (Exception error)
+            {
+                System.Windows.MessageBox.Show(error.Message, "Hiba a beolvasásnál", MessageBoxButton.OK, MessageBoxImage.Error);
+                ret = "";
+            }
 
             return ret;
         }
@@ -239,7 +235,7 @@ namespace Painter_Price_Offer
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
-
+            grdConsumption_LostFocus(null, null);
             txtTitle.Focus();
             DataToPDF data = null; //adatfeldolgozás
             OwnerModel owner = new OwnerModel(); //Tulajdonos
@@ -296,9 +292,23 @@ namespace Painter_Price_Offer
             savePath = ReadSavePath();
 
             //Összegek
-            wSum = int.Parse(lblWork.Content.ToString());
-            cSum = int.Parse(lblMaterial.Content.ToString());
-            totalSum = wSum + cSum;
+            if(!(tableWorkflow.Rows.Count == 0))
+            {
+                wSum = int.Parse(lblWork.Content.ToString());
+            }
+            else
+            {
+                lblWork.Content = "0";
+            }
+            if (!(tableConsumption.Rows.Count == 0))
+            {
+                cSum = int.Parse(lblMaterial.Content.ToString());
+            }
+            else
+            {
+                lblMaterial.Content = "0";
+            }
+            totalSum = 0;
 
             //Adatok átadása nyomtatásra
             data = new DataToPDF(owner, customer, workflow, consuption, savePath, wSum, cSum, totalSum);

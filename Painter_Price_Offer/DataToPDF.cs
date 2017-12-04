@@ -1,9 +1,6 @@
 ﻿using Painter_Price_Offer.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Windows;
@@ -231,6 +228,7 @@ namespace Painter_Price_Offer
                         table.AddCell(new PdfPCell(new Phrase(" ", DataFont)) { BorderWidth = 0 });
                         table.AddCell(new PdfPCell(new Phrase("Munkadíj öszesen: ", DataFont)) { HorizontalAlignment = 2, BorderWidth = 0 });
                         table.AddCell(new PdfPCell(new Phrase(_WSum.ToString() + " Ft", DataFont)) { HorizontalAlignment = 0, BorderWidth = 0 });
+                        _TotalSum += _WSum;
                     }
                     else
                         table.AddCell(new PdfPCell(new Phrase(" ", DataFont)) { Colspan = 3, BorderWidth = 0 });
@@ -240,6 +238,7 @@ namespace Painter_Price_Offer
                         table.AddCell(new PdfPCell(new Phrase(" ", DataFont)) { BorderWidth = 0 });
                         table.AddCell(new PdfPCell(new Phrase("Anyagdíj öszesen: ", DataFont)) { HorizontalAlignment = 2, BorderWidth = 0 });
                         table.AddCell(new PdfPCell(new Phrase(_CSum.ToString() + " Ft", DataFont)) { HorizontalAlignment = 0, BorderWidth = 0 });
+                        _TotalSum += _CSum;
                     }
                     else
                         table.AddCell(new PdfPCell(new Phrase(" ", DataFont)) { Colspan = 3, BorderWidth = 0 });
@@ -255,6 +254,7 @@ namespace Painter_Price_Offer
                     table.AddCell(new PdfPCell(new Phrase("Aláírás", DataFont)) { Colspan = 2, BorderWidth = 0f, HorizontalAlignment = 1 });
 
 
+                    table.KeepTogether = true;
                     table.SpacingBefore = 30f;
                     table.SetWidthPercentage(new float[3] { 296f, 90f, 90f }, new Rectangle(iTextSharp.text.PageSize.A4));
                     doc.Add(table);
