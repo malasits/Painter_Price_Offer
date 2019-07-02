@@ -50,10 +50,10 @@ namespace Painter_Price_Offer
                     string savePath = _Save;
 
                     Document doc = new Document(iTextSharp.text.PageSize.A4, 5, 5, 40, 20);
-                    BaseFont bffont = BaseFont.CreateFont(@"font\RobotoCondensed-Light.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                    BaseFont bffont = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1252, false);
 
                     iTextSharp.text.Font TitleFont = new iTextSharp.text.Font(bffont, 20, 1);
-                    iTextSharp.text.Font SubTitleFont = new iTextSharp.text.Font(bffont, 12, 1);
+                    iTextSharp.text.Font SubTitleFont = new iTextSharp.text.Font(bffont, 11, 1);
                     iTextSharp.text.Font DataFont = new iTextSharp.text.Font(bffont, 10, 0);
 
                     PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(_Save + @"\" + _Title + ".pdf", FileMode.Create, FileAccess.Write));
