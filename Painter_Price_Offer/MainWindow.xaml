@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Painter_Price_Offer"
         mc:Ignorable="d"
-        Title="Árajánlat készítő" Height="700" MinWidth="760" MaxWidth="760" WindowStartupLocation="CenterScreen" Name="Window" ResizeMode="NoResize">
+        Title="Árajánlat készítő" Height="900" Width="900" WindowStartupLocation="CenterScreen" Name="Window" ResizeMode="CanResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="370"/>
-            <ColumnDefinition Width="370"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="160"/>
+            <RowDefinition Height="180"/>
             <RowDefinition Height="290*"/>
             <RowDefinition Height="255*"/>
             <RowDefinition Height="30"/>
@@ -29,7 +29,7 @@
             </MenuItem>
         </Menu>
         <GroupBox Grid.Row="1" Grid.Column="0" Header="Saját adatok">
-            <WrapPanel>
+            <DockPanel>
                 <StackPanel Width="80">
                     <Label>Lap címe:</Label>
                     <Label>Név:</Label>
@@ -38,13 +38,13 @@
                     <Label>e-mail cím:</Label>
                 </StackPanel>
                 <StackPanel>
-                    <TextBox Name="txtTitle" Width="250" Height="20" Margin="0,5,0,0"/>
-                    <TextBox Name="txtName" Width="250" Height="20" Margin="0,5,0,0"/>
-                    <TextBox Name="txtLocation" Width="250" Height="20" Margin="0,5,0,0"/>
-                    <TextBox Name="txtTelNumber" Width="250" Height="20" Margin="0,5,0,0"/>
-                    <TextBox Name="txtEmail" Width="250" Height="20" Margin="0,5,0,0"/>
+                    <TextBox Name="txtTitle" Height="20" Margin="0,5,0,0"/>
+                    <TextBox Name="txtName" Height="20" Margin="0,5,0,0"/>
+                    <TextBox Name="txtLocation" Height="20" Margin="0,5,0,0"/>
+                    <TextBox Name="txtTelNumber" Height="20" Margin="0,5,0,0"/>
+                    <TextBox Name="txtEmail" Height="20" Margin="0,5,0,0"/>
                 </StackPanel>
-            </WrapPanel>
+            </DockPanel>
         </GroupBox>
         <GroupBox Grid.Row="1" Grid.Column="1" Header="Megrendelő adatai">
             <StackPanel>
@@ -52,20 +52,22 @@
                     <Label>Megrendelői adatok alkalmazása:</Label>
                     <CheckBox Name="cbCustomer" Margin="10,5,0,0" IsChecked="False" Checked="cbCustomer_Checked" Unchecked="cbCustomer_Unchecked"/>
                 </WrapPanel>
-                <WrapPanel>
+                <DockPanel>
                     <StackPanel Width="80">
                         <Label>Név:</Label>
                         <Label>Lakcím:</Label>
+                        <Label>Munk. megn:</Label>
                         <Label>Telefonszám:</Label>
                         <Label>e-mail cím:</Label>
                     </StackPanel>
-                    <StackPanel>
-                        <TextBox Name="txtCustomerName" Width="250" Height="20" Margin="0,5,0,0" IsEnabled="False"/>
-                        <TextBox Name="txtCustomerLocation" Width="250" Height="20" Margin="0,5,0,0" IsEnabled="False"/>
-                        <TextBox Name="txtCustomerPhoneNumber" Width="250" Height="20" Margin="0,5,0,0" IsEnabled="False"/>
-                        <TextBox Name="txtCustomerEmail" Width="250" Height="20" Margin="0,5,0,0" IsEnabled="False"/>
+                    <StackPanel >
+                        <TextBox Name="txtCustomerName" Height="20" Margin="0,5,0,0" IsEnabled="False"/>
+                        <TextBox Name="txtCustomerLocation"  Height="20" Margin="0,5,0,0" IsEnabled="False"/>
+                        <TextBox Name="txtCustomerWorkPlace"  Height="20" Margin="0,5,0,0" IsEnabled="False"/>
+                        <TextBox Name="txtCustomerPhoneNumber"  Height="20" Margin="0,5,0,0" IsEnabled="False"/>
+                        <TextBox Name="txtCustomerEmail"  Height="20" Margin="0,5,0,0" IsEnabled="False"/>
                     </StackPanel>
-                </WrapPanel>
+                </DockPanel>
             </StackPanel>
         </GroupBox>
         <GroupBox Grid.Row="2" Grid.ColumnSpan="2" Header="Munkadíj felsorolása">

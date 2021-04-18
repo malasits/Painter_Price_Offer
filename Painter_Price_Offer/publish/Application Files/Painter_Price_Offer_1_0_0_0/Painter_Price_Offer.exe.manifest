@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Painter_Price_Offer.exe" version="1.0.0.0" publicKeyToken="55ebb9fc1edf9b93" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Painter_Price_Offer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Painter_Price_Offer.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="itextsharp.dll" size="4071424">
+      <assemblyIdentity name="itextsharp" version="5.5.12.0" publicKeyToken="8354AE6D2174DDCA" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>nuJqPOO6EUGgCtyLhPL0+qdQc6ejhEbc9vrmEIanQOs=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Painter_Price_Offer.exe" size="1108960">
+      <assemblyIdentity name="Painter_Price_Offer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>JAOVBvD5CpHWoX40jq7wtDBtoRsJzptuJqkr2Ub06Fw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="icon.ico" size="15086">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>1kVDN0ZQqyF3aWWC5KboHbq0XIw7v4NKCFyg4d/8NMc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Painter_Price_Offer.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ji8aT6+d4QyGsLkWKNdTYyE7mNtRXIN9y+Xmyl/UOJU=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=DESKTOP-EFAUNOI\malas" issuerKeyHash="7d56d989fbde9f13d37ccf68ab867c394847b1dc" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>VYm0YckeJG2dmcHpCknR2XD4xc7FRKQpUpmrh494xu0=</DigestValue></Reference></SignedInfo><SignatureValue>Urba+AkpLv1j/A7NSknvD8Vw9V6TkBGZyxIF+5h0Q9skAX0913oyD11y00pSueb+Dtqq1bIe29fYtaZR9EEaFrn3saQ0128UV2FuctUX+PtNZlMHDmZXF8WTY1tpnuxMgGXCJzpzBdviWTUn58FOxD2eBGWFIWx+rXcC/GP3Cfk=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>ypgMsrTAZ04yYG+iOvyOt74Vvn3gG2cZdqPGNL6pCxmIByHFFwHvaBsbBskkd0XQ8wbUm++I6883h1MYPr3VYxwfGPtuAAC+N5LPlAGR1rubKiOrrEvPrh1YJa53Fgxw3qNrvB7gl4oktD4UM5zH4mGQ8qKRdHkvOBVkeQu7VCk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="edc6788f87ab995229a444c5cec5f870d9d1490ae9c1999d6d241ec961b48955" Description="" Url=""><as:assemblyIdentity name="Painter_Price_Offer.exe" version="1.0.0.0" publicKeyToken="55ebb9fc1edf9b93" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=DESKTOP-EFAUNOI\malas</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>38GfJX5vULPQYEpk5Q96jp9Z0V0+sHGrCYYRaManGE0=</DigestValue></Reference></SignedInfo><SignatureValue>lKdy5tbV4jDz2/o6HipsaFbOu3oXKkW8wBIdc70DK4RKqYMre1+qD5XvC7KtJRJXnG3CrT7NkQQc8EYRQTJ/RrL3fPB+8lqHksPnbg6E3Vi4ZC+dUJMB5gOYkbWsK0rEYxgzO9XB0rNsbUpoFmj/FrGZBd3/5W+iFCJA2tcIcpM=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>ypgMsrTAZ04yYG+iOvyOt74Vvn3gG2cZdqPGNL6pCxmIByHFFwHvaBsbBskkd0XQ8wbUm++I6883h1MYPr3VYxwfGPtuAAC+N5LPlAGR1rubKiOrrEvPrh1YJa53Fgxw3qNrvB7gl4oktD4UM5zH4mGQ8qKRdHkvOBVkeQu7VCk=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB7TCCAVagAwIBAgIQWE0VK5iyBo1ORgq59ME5ODANBgkqhkiG9w0BAQsFADA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEUARgBBAFUATgBPAEkAXABtAGEAbABhAHMwHhcNMjEwNDE4MTY1ODQ1WhcNMjIwNDE4MjI1ODQ1WjA1MTMwMQYDVQQDHioARABFAFMASwBUAE8AUAAtAEUARgBBAFUATgBPAEkAXABtAGEAbABhAHMwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMqYDLK0wGdOMmBvojr8jre+Fb594BtnGXajxjS+qQsZiAchxRcB72gbGwbJJHdF0PMG1JvviOvPN4dTGD691WMcHxj7bgAAvjeSz5QBkda7myojq6xLz64dWCWudxYMcN6ja7we4JeKJLQ+FDOcx+JhkPKikXR5LzgVZHkLu1QpAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAOmp4DVqtjTxotb347lcf+x5CZLivjMge0ySh/gdkFEigsk5nI/u5edxW1QckhJ4+aniUkmw/v3SlG4ywQywICxQ7P2/KqLtD7cBwJiD5Az4iD+ebZmCWs3IAo6PARZbeD8TV435+JWK2W0UF1UcvLWO2RzKBnylE5q/mBEigLIw=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

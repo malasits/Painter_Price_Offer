@@ -109,6 +109,7 @@ namespace Painter_Price_Offer
                         customerCell.Colspan = 2;
                         customerCell.PaddingBottom = 10f;
                         table.AddCell(customerCell);
+                        int subtitleColumnWidth = 36;
 
                         if (!string.IsNullOrEmpty(_Customer._name))
                         {
@@ -119,6 +120,12 @@ namespace Painter_Price_Offer
                         {
                             table.AddCell(new PdfPCell(new Phrase("Cím:", DataFont)));
                             table.AddCell(new PdfPCell(new Phrase(_Customer._location, DataFont)));
+                        }
+                        if (!string.IsNullOrEmpty(_Customer._workPlace))
+                        {
+                            table.AddCell(new PdfPCell(new Phrase("Munka megnevezése:", DataFont)));
+                            table.AddCell(new PdfPCell(new Phrase(_Customer._workPlace, DataFont)));
+                            subtitleColumnWidth = 100;
                         }
                         if (!string.IsNullOrEmpty(_Customer._phoneNumber))
                         {
@@ -131,7 +138,7 @@ namespace Painter_Price_Offer
                             table.AddCell(new PdfPCell(new Phrase(_Customer._email, DataFont)));
                         }
 
-                        table.SetWidthPercentage(new float[2] { 36, 440f }, new Rectangle(iTextSharp.text.PageSize.A4));
+                        table.SetWidthPercentage(new float[2] { subtitleColumnWidth, 440f }, new Rectangle(iTextSharp.text.PageSize.A4));
                         table.SpacingAfter = 15f;
                         doc.Add(table);
                     }

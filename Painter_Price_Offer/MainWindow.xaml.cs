@@ -93,6 +93,7 @@ namespace Painter_Price_Offer
             txtCustomerName.IsEnabled = true;
             txtCustomerPhoneNumber.IsEnabled = true;
             txtCustomerLocation.IsEnabled = true;
+            txtCustomerWorkPlace.IsEnabled = true;
             txtCustomerEmail.IsEnabled = true;
         }
 
@@ -101,6 +102,7 @@ namespace Painter_Price_Offer
             txtCustomerName.IsEnabled = false;
             txtCustomerPhoneNumber.IsEnabled = false;
             txtCustomerLocation.IsEnabled = false;
+            txtCustomerWorkPlace.IsEnabled = false;
             txtCustomerEmail.IsEnabled = false;
         }
 
@@ -211,6 +213,7 @@ namespace Painter_Price_Offer
                 txtEmail.Text = "adrige@vipmail.hu";
                 txtCustomerEmail.Text = "";
                 txtCustomerLocation.Text = "";
+                txtCustomerWorkPlace.Text = "";
                 txtCustomerName.Text = "";
                 txtCustomerPhoneNumber.Text = "";
                 tableWorkflow.Clear();
@@ -258,6 +261,7 @@ namespace Painter_Price_Offer
             customer._isActive = Convert.ToBoolean(cbCustomer.IsChecked);
             customer._name = txtCustomerName.Text;
             customer._location = txtCustomerLocation.Text;
+            customer._workPlace = txtCustomerWorkPlace.Text;
             customer._phoneNumber = txtCustomerPhoneNumber.Text;
             customer._email = txtCustomerEmail.Text;
 
